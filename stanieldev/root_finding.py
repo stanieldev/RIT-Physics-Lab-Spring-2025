@@ -54,7 +54,7 @@ def continuous_binary_search_value(*,
             upperbound = midpoint
     else:
         return midpoint
-    
+
 def continuous_binary_search_function(*,
     f: callable, 
     lowerbound: int | float, 
