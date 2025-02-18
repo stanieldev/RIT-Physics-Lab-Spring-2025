@@ -1,6 +1,6 @@
 import numpy as np
 
-# Closest point in list of discrete points
+# Closest point in list of discrete points (Single Variable)
 def find_two_closest_points(*, 
     y: np.ndarray, 
     x: np.ndarray, 
@@ -46,7 +46,7 @@ def find_two_closest_points(*,
     # Return the two closest points
     return (x[index_1], y[index_1]), (x[index_2], y[index_2])
 
-# Linear interpolation between two points
+# Linear interpolation between two points (Single Variable)
 def linear_interpolation(*, 
     p1: tuple[int|float, int|float],
     p2: tuple[int|float, int|float], 

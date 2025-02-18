@@ -1,7 +1,7 @@
 import numpy as np
 
 
-# Euler's Method
+# Euler's Method (Single Variable, Vectorized)
 def continuous_eulers_method_value(
     f: callable,
     t0: float | int,
@@ -83,7 +83,7 @@ def discrete_eulers_method_function():
     raise NotImplementedError("This function is not yet implemented")
 
 
-# Midpoint Method
+# Midpoint Method (Single Variable, Vectorized)
 def continuous_midpoint_method_value(
     f: callable,
     t0: float | int,
@@ -161,7 +161,7 @@ def discrete_midpoint_method_function():
     raise NotImplementedError("This function is not yet implemented")
 
 
-# Runge-Kutta Method
+# Runge-Kutta Method (Single Variable, Vectorized)
 def continuous_runge_kutta_method_value(
     f: callable,
     t0: float | int,

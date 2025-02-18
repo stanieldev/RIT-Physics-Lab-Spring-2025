@@ -1,6 +1,100 @@
 import numpy as np
 
 
+# Riemann Left-Handed Summation Functions (Single Variable)
+def continuous_riemann_left_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_riemann_left_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_left_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_left_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+# Riemann Right-Handed Summation Functions (Single Variable)
+def continuous_riemann_right_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_riemann_right_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_right_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_right_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+# Riemann Middle-Handed Summation Functions (Single Variable)
+def continuous_riemann_middle_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_riemann_middle_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_middle_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_riemann_middle_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+# Trapezoid Summation Functions (Single Variable)
+def continuous_trapezoid_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_trapezoid_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_trapezoid_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_trapezoid_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+# Simpson Summation Functions (Single Variable)
+def continuous_simpson_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_simpson_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_simpson_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_simpson_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+# Simpsons 3/8 Summation Functions (Single Variable)
+def continuous_simpsons_3_8_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def continuous_simpsons_3_8_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_simpsons_3_8_value():
+    raise NotImplementedError("This function is not yet implemented.")
+
+def discrete_simpsons_3_8_function():
+    raise NotImplementedError("This function is not yet implemented.")
+
+
+
+
+
+
+
+
+
+
+
+
 # Value Summation Functions
 def riemann_left(f: callable, 
                  a: float|int, 
