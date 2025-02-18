@@ -1,9 +1,8 @@
 import numpy as np
-from interpolation import find_two_closest_points, linear_interpolation
 
 
 # Euler's Method
-def eulers_method_value(
+def continuous_eulers_method_value(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -40,7 +39,7 @@ def eulers_method_value(
     for t in T: x += f(t, x)*dt
     return x
 
-def eulers_method_function(
+def continuous_eulers_method_function(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -77,9 +76,15 @@ def eulers_method_function(
     for t in T[:-1]: x.append(x[-1] + f(t, x[-1])*dt)
     return T, x
 
+def discrete_eulers_method_value():
+    raise NotImplementedError("This function is not yet implemented")
+
+def discrete_eulers_method_function():
+    raise NotImplementedError("This function is not yet implemented")
+
 
 # Midpoint Method
-def midpoint_method_value(
+def continuous_midpoint_method_value(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -114,7 +119,7 @@ def midpoint_method_value(
     for t in T[:-1]: x += f(t + dt/2, x + f(t, x)*dt/2)*dt
     return x
         
-def midpoint_method_function(
+def continuous_midpoint_method_function(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -149,9 +154,15 @@ def midpoint_method_function(
     for t in T[:-1]: x.append(x[-1] + f(t + dt/2, x[-1] + f(t, x[-1])*dt/2)*dt)
     return T, x
 
+def discrete_midpoint_method_value():
+    raise NotImplementedError("This function is not yet implemented")
+
+def discrete_midpoint_method_function():
+    raise NotImplementedError("This function is not yet implemented")
+
 
 # Runge-Kutta Method
-def runge_kutta_method_value(
+def continuous_runge_kutta_method_value(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -191,7 +202,7 @@ def runge_kutta_method_value(
         x += (k1 + 2*k2 + 2*k3 + k4)*dt/6
     return x
 
-def runge_kutta_method_function(
+def continuous_runge_kutta_method_function(
     f: callable,
     t0: float | int,
     x0: float | int | np.ndarray | tuple | list,
@@ -230,3 +241,9 @@ def runge_kutta_method_function(
         k4 = f(t + dt  , x[-1] + k3*dt  )
         x.append(x[-1] + (k1 + 2*k2 + 2*k3 + k4)*dt/6)
     return T, x
+
+def discrete_runge_kutta_method_value():
+    raise NotImplementedError("This function is not yet implemented")
+
+def discrete_runge_kutta_method_function():
+    raise NotImplementedError("This function is not yet implemented")
