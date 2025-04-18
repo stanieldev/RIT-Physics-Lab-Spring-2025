@@ -4,6 +4,10 @@ from vector3 import Vector3
 
 
 
+
+
+
+
 # Takes in a grid of spins and returns the interactions between them
 def interact_2D(grid: np.ndarray, Δx: int, Δy: int):
 
@@ -13,7 +17,6 @@ def interact_2D(grid: np.ndarray, Δx: int, Δy: int):
     assert isinstance(grid, np.ndarray), "Grid must be a numpy array."
     assert grid.ndim == 2,               "Grid must be a 2D array."
     assert grid.dtype == Vector3,        "Grid must be a numpy array of floats."
-
 
     assert isinstance(Δx, int), "Δx must be an integer."
     assert isinstance(Δy, int), "Δy must be an integer."
@@ -32,15 +35,33 @@ def interact_2D(grid: np.ndarray, Δx: int, Δy: int):
 
 
 
+
+
+
+
+
+
+
+
 def test_interaction_2D(N: int, *, print_intermediate_successes: bool=False):
 
     # Test the interaction function for all combinations of Δx and Δy
     CALCULATED_TOTAL_INTERACTIONS = 0
+    
+    # Create a test array of size N x N with Vector3(1, 0, 0) elements
+    test_array = np.full((N, N), Vector3(1, 0, 0), dtype=Vector3)
+    # Set the dtype of the test array to Vector3
+    test_array = test_array.astype(Vector3)
+    print(test_array)
+    print(test_array.dtype)
+    # Set the dtype of the test array to Vector3
+    test_array = test_array.astype(Vector3)
+    print(test_array)
     for Δx in range(N):
         for Δy in range(N):
             
             # Calculate the number of interactions for the given Δx and Δy
-            calculated_interactions = int(interact_2D(np.ones((N, N)), Δx, Δy))
+            calculated_interactions = int(interact_2D(test_array, Δx, Δy))
             expected_interactions = (N - Δx) * (N - Δy) * (1 if Δx == 0 or Δy == 0 else 2)
 
             # Assert that the calculated interactions match the expected interactions
