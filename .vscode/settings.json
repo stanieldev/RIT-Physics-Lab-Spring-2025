@@ -1,6 +1,10 @@
 {
     "files.exclude": {
         ".idea": true,
-        ".vscode": true
+        ".vscode": true,
+        "**/__pycache__": true,
+        "Assignment*": true,
+        "Entropy": true,
+        "stanieldev": true
     }
 }
