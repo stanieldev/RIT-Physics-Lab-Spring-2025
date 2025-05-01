@@ -1,4 +1,4 @@
-# Stanley Goodwin, 4/22/2025
+# Stanley Goodwin, 4/24/2025
 import numpy as np
 
 
@@ -47,6 +47,10 @@ def _test_generate_grid():
     grid_3d = generate_grid(size=11, dimension=3)
     assert grid_3d.shape == (11, 11, 11, 3), "Test 3D grid failed."
     assert np.all(np.isclose(np.linalg.norm(grid_3d, axis=-1), 1)), "Test 3D grid failed."
+
+    # Test 11D grid
+    grid_11d = generate_grid(size=2, dimension=11)
+    assert grid_11d.shape == (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 11), "Test 11D grid failed."
 
     # Test fill vector
     fill_vector = np.array([1.0, 0.0])

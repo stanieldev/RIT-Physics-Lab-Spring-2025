@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from ND.grid import generate_grid
-from ND.interaction import interaction_products, allowed_interaction_tuples, allowed_interaction_weighting
+from ND.interaction import interaction_products, allowed_spherical_interaction_tuples, allowed_interaction_weighting
 from itertools import product
 
 
@@ -74,7 +74,7 @@ class IsingModel:
         self.grid = generate_grid(size=self.grid_size, dimension=self.dimension, fill=np.array([1, 0]))  # fill=np.array([1, 0, 0])
 
         # Precompute interaction parameters
-        self.interaction_offsets: np.ndarray = allowed_interaction_tuples(dimension=self.dimension, maximum_radius=self.interaction_radius)
+        self.interaction_offsets: np.ndarray = allowed_spherical_interaction_tuples(dimension=self.dimension, maximum_radius=self.interaction_radius)
         self.interaction_weights: np.ndarray = allowed_interaction_weighting(interaction_offsets=self.interaction_offsets, power=self.interaction_falloff)
 
 

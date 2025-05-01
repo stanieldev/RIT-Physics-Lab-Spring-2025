@@ -7,6 +7,42 @@ from itertools import product
 
 
 
+
+
+
+# Calculate the interaction weighting for each offset
+def allowed_interaction_weighting(*, interaction_offsets, power) -> float:
+
+    # Calculate the interaction weighting
+    interaction_weighting = []
+    for i, offset in enumerate(interaction_offsets):
+        if power == 0: interaction_weighting.append(1.0)
+        else: interaction_weighting.append(pow(np.sqrt(sum([i**2 for i in offset])), -power))
+
+    # Return the interaction weighting
+    return interaction_weighting
+
+
+
+
+# Calculates the index tuples that are allowed within the interaction radius.
+def allowed_spherical_interaction_tuples(*, dimension: int, maximum_radius: float) -> np.ndarray[tuple]:
+    INTERACTION_RADIUS_SQUARED = maximum_radius ** 2
+
+    # Generate all possible positive offsets within the interaction radius
+    interaction_offset_tuples = []
+    for offset in product(range(int(maximum_radius)+1), repeat=dimension):
+        if sum(offset) == 0: continue
+        if sum([i**2 for i in offset]) > INTERACTION_RADIUS_SQUARED: continue
+        interaction_offset_tuples.append(offset)
+
+    # Convert to numpy array of tuples and return
+    return np.array(interaction_offset_tuples, dtype=int)
+
+
+
+
+
 # Calculates the interactions between grid points in N-dimensional space.
 def interaction_products(*, grid: np.ndarray, offset: np.ndarray) -> float:
 
@@ -35,19 +71,6 @@ def interaction_products(*, grid: np.ndarray, offset: np.ndarray) -> float:
 
 
 
-# Calculates the index tuples that are allowed within the interaction radius.
-def allowed_interaction_tuples(*, dimension: int, maximum_radius: float) -> np.ndarray[tuple]:
-    INTERACTION_RADIUS_SQUARED = maximum_radius ** 2
-
-    # Generate all possible offsets within the interaction radius
-    interaction_offset_tuples = []
-    for offset in product(range(int(maximum_radius)+1), repeat=dimension):
-        if sum(offset) == 0: continue
-        if sum([i**2 for i in offset]) > INTERACTION_RADIUS_SQUARED: continue
-        interaction_offset_tuples.append(offset)
-
-    # Convert to numpy array of tuples and return
-    return np.array(interaction_offset_tuples, dtype=int)
 
 
 
@@ -57,17 +80,7 @@ def allowed_interaction_tuples(*, dimension: int, maximum_radius: float) -> np.n
 
 
 
-# Calculate the interaction weighting for each offset
-def allowed_interaction_weighting(*, interaction_offsets, power) -> float:
 
-    # Calculate the interaction weighting
-    interaction_weighting = []
-    for i, offset in enumerate(interaction_offsets):
-        if power == 0: interaction_weighting.append(1.0)
-        else: interaction_weighting.append(pow(np.sqrt(sum([i**2 for i in offset])), -power))
-
-    # Return the interaction weighting
-    return interaction_weighting
 
 
 
